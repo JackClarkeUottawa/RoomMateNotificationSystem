@@ -23,20 +23,6 @@ def send_message(bod,num):
         from_='+14436711087',
         to=num
     )
-def determineday():
-    """ check if date is friday or monday, return 1 if friday and 2 if monday, else returns 0"""
-    day = date.today()
-
-
-    rvalue = 0
-    if day.isoweekday() == 1:
-        rvalue = 2
-    elif day.isoweekday() == 5:
-        rvalue = 1
-    else:
-        rvalue = 0
-
-    return rvalue
 
 def writeArraytofile(a,pat):
     with open(pat,"wb") as txt:
@@ -60,11 +46,43 @@ def rearrange_data(pat):
         b = shift(a)
         writeArraytofile(b)
     else:
-        print("INVALID FILE")
+        print("File not found, creating file...")
+        writeArraytofile(["Kitchen","First floor Bathroom","2nd Floor Bathroom","Garbage 1","Garbage 2"],pat)
+        #when we have 6 roommates the roles need to change here and a "free" role needs to be added
 def mainthing():
+    users = [{"Name":"Jack","Number":"+***REMOVED***"},
+             {"Name":"Skyla","Number":"+***REMOVED***"},
+             {"Name":"Sarah","Number":"+***REMOVED***"},
+             {"Name":"Chris","Number":"+***REMOVED***"},
+             {"Name":"Natasha","Number":"+***REMOVED***"},]
+    day = determineday()
+
+    if date.today().isoweekday() == 5: # day is firday
+        rearrange_data("schedule.txt")# file needs to be changed for server, maybe
+        a = readfromfile("schedule.txt")
+        for num in range(len(a)):
+            if a[num] != "Garbage 1" or "Garbage 2" or "Free":
+                msg = "Hi "+users[num]["Name"] +"This week you are cleaning the "+a[num]
+                send_message(msg,users[num]["Number"])
+
+    elif date.today().isoweekday() == 1: # day is monday
+        a = readfromfile("schedule.txt")
+        Gp = []
+
+        for num in range(len(a)):
+            if a[num] == "Garbage 1":
+                Gp1 = num
+            elif a[num] == "Garbage 2":
+                Gp2 = num
+        msg1 = "Hi "+users[Gp1]["Name"] +"This week you are cleaning the Garbage with "+users[Gp2]["Name"]
+        msg2 = "Hi "+users[Gp2]["Name"] +"This week you are cleaning the Garbage with "+users[Gp1]["Name"]
+        send_message(msg1,users[Gp1]["Number"])
+        send_message(msg2,users[Gp2]["Number"])
 
 
-# a should be similar to {"Jack":"Kitchen","Skyla":"1st floor bathroom","Sarah":"2nd Floor Bathroom","Chris":"Garbage 1","natasha":"Garbage 2"}
+
+
+
 """Legend
 0 - Jack
 1 - Skyla
@@ -78,7 +96,7 @@ Chores
 3 - Garbage 1
 4 - Garbage 2
 
-a = [0,1,2,3,4]
+a = ["Kitchen","First floor Bathroom","2nd Floor Bathroom","Garbage 1","Garbage 2"]
 """
 
 

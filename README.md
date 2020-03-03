@@ -21,5 +21,5 @@ Functions todo:
 - [x] send text message
 - [ ] set up server
 - [ ] (Optional) add a message for garbage
-- [ ] Make main Function
-
+- [x] Make main Function
+- [ ] debug main function
