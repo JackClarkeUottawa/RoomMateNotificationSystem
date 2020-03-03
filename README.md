@@ -14,14 +14,9 @@ Kitchen
 1 break
 
 Functions todo:
-
-Save array to csv
-import information from csv
-main function that modifies the csv and returns the new values
-date check function
-
-Functions Done:
-send text message
-
-Server Setup Todo:
-figure out how to make a script run daily on linux
+- [x] Save array to csv
+- [ ] import information from csv
+- [ ] main function that modifies the csv and returns the new values
+- [ ] date check function
+- [ ] send text message
+- [ ] set up server
