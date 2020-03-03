@@ -20,7 +20,7 @@ def setup():
     client = Client(account_sid, auth_token)
     return client
 
-def send_message(bod,num):
+def send_message(bod,num,client):
     """sends a string to phone number
     bod is string message
     num is the string phonenumber in the form '+##########' with areas code included
