@@ -59,6 +59,7 @@ def rearrange_data(pat):
         writeArraytofile(["Kitchen","First floor Bathroom","2nd Floor Bathroom","Garbage 1","Garbage 2"],pat)
         #when we have 6 roommates the roles need to change here and a "free" role needs to be added
 def mainthing():
+    client = setup()
     users = readfromfile("users.json")
 
     if date.today().isoweekday() == 5: # day is firday
@@ -67,11 +68,10 @@ def mainthing():
         for num in range(len(a)):
             if a[num] != "Garbage 1" or "Garbage 2" or "Free":
                 msg = "Hi "+users[num]["Name"] +"This week you are cleaning the "+a[num]
-                send_message(msg,users[num]["Number"])
+                send_message(msg,users[num]["Number"],client)
 
     elif date.today().isoweekday() == 1: # day is monday
         a = readfromfile("schedule.txt")
-        Gp = []
 
         for num in range(len(a)):
             if a[num] == "Garbage 1":
@@ -80,8 +80,8 @@ def mainthing():
                 Gp2 = num
         msg1 = "Hi "+users[Gp1]["Name"] +"This week you are cleaning the Garbage with "+users[Gp2]["Name"]
         msg2 = "Hi "+users[Gp2]["Name"] +"This week you are cleaning the Garbage with "+users[Gp1]["Name"]
-        send_message(msg1,users[Gp1]["Number"])
-        send_message(msg2,users[Gp2]["Number"])
+        send_message(msg1,users[Gp1]["Number"],client)
+        send_message(msg2,users[Gp2]["Number"],client)
 
 
 
