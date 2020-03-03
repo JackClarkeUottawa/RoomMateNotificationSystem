@@ -7,6 +7,13 @@ def setup():
     "sets up twilio, must be done before running any twilio function"
     from twilio.rest import Client
     twi = readfromfile("twilioinfo.json")
+    """twilioinfo.json should look like this:
+    [
+    "account_sidgoes here",
+    "auth_token goes here"
+    ]
+    
+    """
 
     account_sid = twi[0]
     auth_token = twi[1]
