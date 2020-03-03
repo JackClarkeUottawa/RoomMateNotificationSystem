@@ -14,9 +14,9 @@ Kitchen
 1 break
 
 Functions todo:
-- [x] Save array to csv
+- [ ] Save array to csv
 - [ ] import information from csv
 - [ ] main function that modifies the csv and returns the new values
 - [ ] date check function
-- [ ] send text message
+- [x] send text message
 - [ ] set up server
