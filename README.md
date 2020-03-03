@@ -20,3 +20,4 @@ Functions todo:
 - [ ] date check function
 - [x] send text message
 - [ ] set up server
+- [ ] (Optional) add a message for garbage
