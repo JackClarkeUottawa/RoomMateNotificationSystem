@@ -2,12 +2,14 @@ import twilio
 import pickle
 from datetime import date
 import os
+import json
 def setup():
     "sets up twilio, must be done before running any twilio function"
     from twilio.rest import Client
+    twi = readfromfile("twilioinfo.json")
 
-    account_sid = "ACa971456efc536e1f853090003309c916"
-    auth_token = "ba7834b48e0835fb81a4f74d56bd1340"
+    account_sid = twi[0]
+    auth_token = twi[1]
     client = Client(account_sid, auth_token)
     return client
 
@@ -25,12 +27,12 @@ def send_message(bod,num):
     )
 
 def writeArraytofile(a,pat):
-    with open(pat,"wb") as txt:
-        pickle.dump(a,txt)
+    with open(pat,"w") as txt:
+        json.dump(a,txt,ensure_ascii=False, indent=4)
 
 def readfromfile(pat):
     with open(pat,"rb") as txt:
-        b = pickle.load(txt)
+        b = json.load(txt)
     return b
 
 def shift(seq, n=0):
@@ -50,12 +52,7 @@ def rearrange_data(pat):
         writeArraytofile(["Kitchen","First floor Bathroom","2nd Floor Bathroom","Garbage 1","Garbage 2"],pat)
         #when we have 6 roommates the roles need to change here and a "free" role needs to be added
 def mainthing():
-    users = [{"Name":"Jack","Number":"+***REMOVED***"},
-             {"Name":"Skyla","Number":"+***REMOVED***"},
-             {"Name":"Sarah","Number":"+***REMOVED***"},
-             {"Name":"Chris","Number":"+***REMOVED***"},
-             {"Name":"Natasha","Number":"+***REMOVED***"},]
-    day = determineday()
+    users = readfromfile("users.json")
 
     if date.today().isoweekday() == 5: # day is firday
         rearrange_data("schedule.txt")# file needs to be changed for server, maybe
