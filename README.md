@@ -14,10 +14,12 @@ Kitchen
 1 break
 
 Functions todo:
-- [ ] Save array to csv
-- [ ] import information from csv
-- [ ] main function that modifies the csv and returns the new values
-- [ ] date check function
+- [x] Save array to csv
+- [x] import information from csv
+- [x] main function that modifies the csv and returns the new values
+- [x] date check function
 - [x] send text message
 - [ ] set up server
 - [ ] (Optional) add a message for garbage
+- [ ] Make main Function
+
