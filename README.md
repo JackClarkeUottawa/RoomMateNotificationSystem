@@ -13,6 +13,8 @@ Kitchen
 2 people on garbage
 1 break
 
+To setup, use chron on linux or task scheduler on windows to schedule it to run every day at a specific time. 
+
 Functions todo:
 - [x] Save array to csv
 - [x] import information from csv
