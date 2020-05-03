@@ -23,3 +23,4 @@ Functions todo:
 - [ ] (Optional) add a message for garbage
 - [x] Make main Function (WIP)
 - [x] debug main function
+- [ ] Make a UI
