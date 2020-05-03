@@ -122,4 +122,4 @@ a = ["Kitchen","First floor Bathroom","2nd Floor Bathroom","Garbage 1","Garbage 
 
 
 #client = setup()
-#send_message(input("Please type message: "),'+***REMOVED***')
+#send_message(input("Please type message: "),'+6138844168')

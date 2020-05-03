@@ -13,7 +13,7 @@ Kitchen
 2 people on garbage
 1 break
 
-To setup, use chron on linux or task scheduler on windows to schedule it to run every day at a specific time. 
+To setup, use chron on linux or task scheduler on windows to schedule it to run every day at a specific time. Also the setup is for 6 roommates, they can be listed in users.json
 
 Functions todo:
 - [x] Save array to csv
